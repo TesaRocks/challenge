@@ -29,3 +29,30 @@ export class ProjectListComponent implements OnInit {
 
   ngOnInit(): void {}
 }
+
+// export const fakeDb: IProject[] = [
+//   {
+//     projectName: 'Landing page',
+//     creationDate: Date.now(),
+//     projectManager: 'Walt Cosani',
+//     description: 'some description',
+//     assignedTo: 'Ignacio Truffa',
+//     status: 'Enabled',
+//   },
+//   {
+//     projectName: 'E-commerce Shop',
+//     creationDate: Date.now(),
+//     projectManager: 'Walt Cosani',
+//     description: 'some description',
+//     assignedTo: 'Ignacio Truffa',
+//     status: 'Enabled',
+//   },
+//   {
+//     projectName: 'CRM Linkroom',
+//     creationDate: Date.now(),
+//     projectManager: 'Walt Cosani',
+//     description: 'some description',
+//     assignedTo: 'Ignacio Truffa',
+//     status: 'Enabled',
+//   },
+// ];

@@ -1,1 +1,68 @@
-<p>project-new works!</p>
+<div fxLayoutAlign="left">
+  <mat-card fxFlex.xs="100" fxFlex="50">
+    <form
+      [formGroup]="formNew"
+      (ngSubmit)="onSubmit()"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+    >
+      <mat-form-field appearance="fill">
+        <mat-label>Project Name</mat-label>
+        <input
+          matInput
+          placeholder="Project Name"
+          formControlName="name"
+          id="name"
+          required
+        />
+        <mat-hint>45 charactes max.</mat-hint>
+        <mat-error *ngIf="hasError('name', 'required')"
+          >This field is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter a description</mat-label>
+        <input
+          matInput
+          formControlName="description"
+          id="description"
+          required
+        />
+        <mat-error *ngIf="hasError('description', 'required')"
+          >Plase enter a description
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="manager" id="manager" required />
+        <mat-error *ngIf="hasError('manager', 'required')"
+          >Plase select one
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="assigned" id="assigned" required />
+        <mat-error *ngIf="hasError('assigned', 'required')"
+          >Plase select one
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-select formControlName="status" required>
+          <mat-option value="enabled">Enabled</mat-option>
+          <mat-option value="sales">Disabled</mat-option>
+        </mat-select>
+        <mat-error *ngIf="hasError('status', 'required')"
+          >Plase enter a status
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        type="submit"
+        mat-raised-button
+        color="accent"
+        [disabled]="!formNew.valid"
+      >
+        Create Project
+      </button>
+    </form>
+  </mat-card>
+</div>
