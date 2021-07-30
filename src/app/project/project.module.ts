@@ -4,16 +4,12 @@ import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectNewComponent } from './project-new/project-new.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
 
-
-
 @NgModule({
   declarations: [
     ProjectListComponent,
     ProjectNewComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
 })
-export class ProjectModule { }
+export class ProjectModule {}
