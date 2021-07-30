@@ -1,5 +1,5 @@
-<div fxLayoutAlign="left">
-  <mat-card fxFlex.xs="100" fxFlex="50">
+<div fxLayoutAlign="right">
+  <mat-card fxFlex.xs="100" fxFlex="45">
     <form
       [formGroup]="formNew"
       (ngSubmit)="onSubmit()"
@@ -7,21 +7,15 @@
       fxLayout="column"
     >
       <mat-form-field appearance="fill">
-        <mat-label>Project Name</mat-label>
-        <input
-          matInput
-          placeholder="Project Name"
-          formControlName="name"
-          id="name"
-          required
-        />
-        <mat-hint>45 charactes max.</mat-hint>
+        <mat-card-subtitle>Project Name</mat-card-subtitle>
+        <input matInput formControlName="name" id="name" required />
+
         <mat-error *ngIf="hasError('name', 'required')"
           >This field is required
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Enter a description</mat-label>
+        <mat-card-subtitle>Description</mat-card-subtitle>
         <input
           matInput
           formControlName="description"
@@ -34,18 +28,22 @@
       </mat-form-field>
 
       <mat-form-field appearance="fill">
+        <mat-card-subtitle>Project Manager</mat-card-subtitle>
         <input matInput formControlName="manager" id="manager" required />
         <mat-error *ngIf="hasError('manager', 'required')"
           >Plase select one
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
+        <mat-card-subtitle>Assigned to</mat-card-subtitle>
         <input matInput formControlName="assigned" id="assigned" required />
         <mat-error *ngIf="hasError('assigned', 'required')"
           >Plase select one
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
+        <mat-card-subtitle>Status</mat-card-subtitle>
+
         <mat-select formControlName="status" required>
           <mat-option value="enabled">Enabled</mat-option>
           <mat-option value="sales">Disabled</mat-option>
@@ -57,8 +55,9 @@
 
       <button
         type="submit"
+        style="width: 40%"
         mat-raised-button
-        color="accent"
+        color="warn"
         [disabled]="!formNew.valid"
       >
         Create Project

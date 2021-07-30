@@ -5,6 +5,7 @@ import { Subscription, Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { IApplicationState } from 'src/app/application-state';
+import { IProject } from '../project.interface';
 
 @Component({
   selector: 'app-project-new',
@@ -29,7 +30,9 @@ export class ProjectNewComponent implements OnInit {
   });
 
   ngOnInit(): void {}
-  onSubmit() {}
+  onSubmit() {
+    //const newProject:IProject
+  }
   hasError(
     inputName: 'name' | 'description' | 'manager' | 'assigned' | 'status',
     errorType: string

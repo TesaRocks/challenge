@@ -9,6 +9,8 @@ import * as fromProject from './ngrx/project.reducer';
 import { ProjectEffects } from './ngrx/project.effects';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   declarations: [
     ProjectListComponent,
@@ -17,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    FlexLayoutModule,
     MaterialModule,
     ReactiveFormsModule,
     StoreModule.forFeature(fromProject.projectsFeatureKey, fromProject.reducer),

@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { ProjectModule } from './project/project.module';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -17,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FlexLayoutModule,
     ProjectModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot(),
