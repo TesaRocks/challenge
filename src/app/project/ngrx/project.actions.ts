@@ -44,16 +44,20 @@ export const loadProject = {
 /** **************************************
  *  Add Project
  ***************************************/
-
+const addProjectBegin = createAction(
+  '[Project] Add Project Begin',
+  props<{ project: IProject }>()
+);
 const addProjectSuccess = createAction(
   '[Project] Add Project Success',
-  props<{ Project: IProject }>()
+  props<{ project: IProject }>()
 );
 const addProjectFailure = createAction(
   '[Project] Add Project Failure',
   props<{ error: any }>()
 );
 export const addProject = {
+  begin: addProjectBegin,
   success: addProjectSuccess,
   failure: addProjectFailure,
 };

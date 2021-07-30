@@ -6,6 +6,7 @@ import {
   loadProject,
   updateProject,
   deleteProject,
+  addProject,
 } from './project.actions';
 
 export const projectsFeatureKey = 'projectState';
@@ -69,6 +70,23 @@ export const reducer = createReducer(
     return {
       ...state,
       loadProjectPending: false,
+      error: action.error,
+    };
+  }),
+  // Add One Project
+  on(addProject.begin, (state) => {
+    return { ...state, addProjectPending: true };
+  }),
+  on(addProject.success, (state, action) => {
+    return {
+      ...adapter.addOne(action.project, state),
+      addProjectPending: false,
+    };
+  }),
+  on(addProject.failure, (state, action) => {
+    return {
+      ...state,
+      addProjectPending: false,
       error: action.error,
     };
   }),

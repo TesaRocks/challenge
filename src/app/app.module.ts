@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -12,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
   declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ProjectModule,
     StoreModule.forRoot({}),
