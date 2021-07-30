@@ -6,13 +6,13 @@ import { IProject } from '../project.interface';
  *  Load Projects
  ***************************************/
 
-const loadProjectsBegin = createAction('[Projects] Load Projects Begin');
+const loadProjectsBegin = createAction('[Project] Load Projects Begin');
 const loadProjectsSuccess = createAction(
-  '[Projects] Load Projects Success',
+  '[Project] Load Projects Success',
   props<{ projects: IProject[] }>()
 );
 const loadProjectsFailure = createAction(
-  '[Projects] Load Projects Failure',
+  '[Project] Load Projects Failure',
   props<{ error: any }>()
 );
 
@@ -25,15 +25,15 @@ export const loadProjects = {
  *  Load Project
  ***************************************/
 const loadProjectBegin = createAction(
-  '[Projects] Load Project Begin',
+  '[Project] Load Project Begin',
   props<{ id: number }>()
 );
 const loadProjectSuccess = createAction(
-  '[Projects] Load Project Success',
+  '[Project] Load Project Success',
   props<{ selectedProject: IProject }>()
 );
 const loadProjectFailure = createAction(
-  '[Projects] Load Project Failure',
+  '[Project] Load Project Failure',
   props<{ error: any }>()
 );
 export const loadProject = {
@@ -46,11 +46,11 @@ export const loadProject = {
  ***************************************/
 
 const addProjectSuccess = createAction(
-  '[Projects] Add Project Success',
+  '[Project] Add Project Success',
   props<{ Project: IProject }>()
 );
 const addProjectFailure = createAction(
-  '[Projects] Add Project Failure',
+  '[Project] Add Project Failure',
   props<{ error: any }>()
 );
 export const addProject = {
@@ -62,7 +62,7 @@ export const addProject = {
  ***************************************/
 
 const updateProjectSuccess = createAction(
-  '[Projects] Update Project success',
+  '[Project] Update Project success',
   props<{ project: Update<IProject> }>()
 );
 export const updateProject = {
@@ -73,15 +73,15 @@ export const updateProject = {
  *  Delete Project
  ***************************************/
 const deleteProjectBegin = createAction(
-  '[Projects] Delete Project begin',
+  '[Project] Delete Project begin',
   props<{ id: number }>()
 );
 const deleteProjectSuccess = createAction(
-  '[Projects] Delete Project Success',
+  '[Project] Delete Project Success',
   props<{ id: number }>()
 );
 const deleteProjectFailure = createAction(
-  '[Projects] Delete Project Failure',
+  '[Project] Delete Project Failure',
   props<{ error: any }>()
 );
 export const deleteProject = {
