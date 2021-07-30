@@ -39,12 +39,12 @@ export class ProjectEffects {
     this.actions$.pipe(
       ofType(addProject.begin),
       mergeMap((action) =>
-        this.ProjectService.newProject(action.Project).pipe(
-          map((Project) => addProject.success({ Project })),
+        this.projectService.newProject(action.project).pipe(
+          map((project) => addProject.success({ project })),
           catchError((error) => of(addProject.failure({ error })))
         )
       ),
-      tap(() => this.router.navigate(['Projects']))
+      tap(() => this.router.navigate(['projects']))
     )
   );
   updateProject$ = createEffect(
@@ -52,12 +52,12 @@ export class ProjectEffects {
       this.actions$.pipe(
         ofType(updateProject.success),
         concatMap((action) =>
-          this.ProjectService.updateProject(
-            action.Project.id,
-            action.Project.changes
+          this.projectService.updateProject(
+            action.project.id,
+            action.project.changes
           )
         ),
-        tap(() => this.router.navigate(['Projects']))
+        tap(() => this.router.navigate(['projects']))
       ),
     { dispatch: false }
   );
@@ -65,7 +65,7 @@ export class ProjectEffects {
     this.actions$.pipe(
       ofType(deleteProject.begin),
       mergeMap((action) =>
-        this.ProjectService.removeProject(action.id).pipe(
+        this.projectService.deleteProject(action.id).pipe(
           map(() => deleteProject.success({ id: action.id })),
           catchError((error) => of(deleteProject.failure({ error })))
         )
