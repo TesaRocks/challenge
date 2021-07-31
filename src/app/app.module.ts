@@ -11,6 +11,7 @@ import { ProjectModule } from './project/project.module';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import * as fromEmployee from './employees/ngrx/employee.reducer';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -20,7 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppRoutingModule,
     FlexLayoutModule,
     ProjectModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({ employeeState: fromEmployee.reducer }),
     EffectsModule.forRoot(),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
