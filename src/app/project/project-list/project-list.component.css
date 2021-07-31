@@ -5,12 +5,7 @@ width: 1130px;
 height: 60px;
 left: 0px;
 top: 0px;
-
-/* Table header */
-
 background: rgba(0, 0, 0, 0.02);
-/* stroke / bottom */
-
 box-shadow: inset 0px -1px 0px #D9D9D9;
 
 }
@@ -45,5 +40,32 @@ th{
   .spinner {
     margin-left: 150px;
   }
+.mat-elevation-z8 th, .hide{
+    display: none
+}
+.show{
+  display: block;
 
+
+}
+.hideBorder{
+  border-bottom-style: none;
+}
+.hideUpBorder{
+  border-top-style: none;
+}
+.actionCol{
+  margin-left: 500px;
+}
+.mat-elevation-z8{
+  width: 360px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.setMargin{
+  margin-left: 20px;
+}
+.marginName{
+  padding-top: 15px;
+}
 }

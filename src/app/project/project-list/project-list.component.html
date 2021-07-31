@@ -10,7 +10,12 @@
   <!-- Project Info Column -->
   <ng-container matColumnDef="projectInfo">
     <th mat-header-cell *matHeaderCellDef>Project Info</th>
-    <td mat-cell mat-cell *matCellDef="let project">
+    <td
+      mat-cell
+      mat-cell
+      *matCellDef="let project"
+      class="show hideBorder marginName"
+    >
       {{ project.projectName }}<br />
       <span>Creation date: {{ project.creationDate | date }}</span>
     </td>
@@ -19,7 +24,7 @@
   <!-- Project Manager Column -->
   <ng-container matColumnDef="projectManager">
     <th mat-header-cell *matHeaderCellDef>Project Manager</th>
-    <td mat-cell *matCellDef="let project">
+    <td mat-cell *matCellDef="let project" class="hide">
       <div class="account">
         <mat-icon>account_circle</mat-icon> &nbsp; {{ project.projectManager }}
       </div>
@@ -28,7 +33,7 @@
   <!-- Assigned to Column -->
   <ng-container matColumnDef="assignedTo">
     <th mat-header-cell *matHeaderCellDef>Assigned to</th>
-    <td mat-cell *matCellDef="let project">
+    <td mat-cell *matCellDef="let project" class="show hideUpBorder setMargin">
       <div class="account">
         <mat-icon>account_box</mat-icon> &nbsp;{{ project.assignedTo }}
       </div>
@@ -37,7 +42,7 @@
   <!-- Status Column -->
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef>Status</th>
-    <td mat-cell *matCellDef="let project">
+    <td mat-cell *matCellDef="let project" class="hide">
       <button class="enabled" mat-raised-button disabled type="menu">
         {{ project.status }}
       </button>
@@ -47,7 +52,7 @@
   <!-- Actions Column -->
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef>Action</th>
-    <td mat-cell *matCellDef="let project">
+    <td mat-cell *matCellDef="let project" class="actionCol">
       <mat-icon color="primary" class="action" (click)="onEdit(project.id)"
         >edit</mat-icon
       >

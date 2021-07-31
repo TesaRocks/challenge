@@ -11,6 +11,7 @@ import {
   updateProject,
 } from './project.actions';
 import { IProject } from '../project.interface';
+import { Router } from '@angular/router';
 @Injectable()
 export class ProjectEffects {
   loadProjects$ = createEffect(() =>
@@ -53,7 +54,8 @@ export class ProjectEffects {
           map((project) => addProject.success({ project })),
           catchError((error) => of(addProject.failure({ error })))
         )
-      )
+      ),
+      tap(() => this.router.navigate(['']))
     )
   );
   updateProject$ = createEffect(
@@ -65,7 +67,8 @@ export class ProjectEffects {
             action.project.id,
             action.project.changes
           )
-        )
+        ),
+        tap(() => this.router.navigate(['']))
       ),
     { dispatch: false }
   );
@@ -83,6 +86,7 @@ export class ProjectEffects {
 
   constructor(
     private actions$: Actions,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private router: Router
   ) {}
 }

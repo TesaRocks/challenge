@@ -120,9 +120,7 @@ export class ProjectNewComponent implements OnInit, OnDestroy {
       this.addProjectPending$ = this.store.select(addProjectPending);
     }
 
-    //this.store.dispatch(updateHeader({ updatedHeader: 'My projects' }));
-    //this.router.navigate(['/projects']);
-    this.formNew.reset();
+    this.store.dispatch(updateHeader({ updatedHeader: 'My projects' }));
   }
   hasError(
     inputName: 'name' | 'description' | 'manager' | 'assigned' | 'status',

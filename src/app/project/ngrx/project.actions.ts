@@ -22,26 +22,6 @@ export const loadProjects = {
   failure: loadProjectsFailure,
 };
 /** **************************************
- *  Load Project
- ***************************************/
-const loadProjectBegin = createAction(
-  '[Project] Load Project Begin',
-  props<{ id: string }>()
-);
-const loadProjectSuccess = createAction(
-  '[Project] Load Project Success',
-  props<{ selectedProject: IProject }>()
-);
-const loadProjectFailure = createAction(
-  '[Project] Load Project Failure',
-  props<{ error: any }>()
-);
-export const loadProject = {
-  begin: loadProjectBegin,
-  success: loadProjectSuccess,
-  failure: loadProjectFailure,
-};
-/** **************************************
  *  Add Project
  ***************************************/
 const addProjectBegin = createAction(
@@ -61,6 +41,27 @@ export const addProject = {
   success: addProjectSuccess,
   failure: addProjectFailure,
 };
+/** **************************************
+ *  Load Project
+ ***************************************/
+const loadProjectBegin = createAction(
+  '[Project] Load Project Begin',
+  props<{ id: string }>()
+);
+const loadProjectSuccess = createAction(
+  '[Project] Load Project Success',
+  props<{ selectedProject: IProject }>()
+);
+const loadProjectFailure = createAction(
+  '[Project] Load Project Failure',
+  props<{ error: any }>()
+);
+export const loadProject = {
+  begin: loadProjectBegin,
+  success: loadProjectSuccess,
+  failure: loadProjectFailure,
+};
+
 /** **************************************
  *  Update Project
  ***************************************/
