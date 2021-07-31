@@ -11,6 +11,7 @@ import { ProjectModule } from './project/project.module';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SharedModule } from './shared/shared.module';
 import * as fromEmployee from './employees/ngrx/employee.reducer';
 
 @NgModule({
@@ -20,6 +21,7 @@ import * as fromEmployee from './employees/ngrx/employee.reducer';
     HttpClientModule,
     AppRoutingModule,
     FlexLayoutModule,
+    SharedModule,
     ProjectModule,
     StoreModule.forRoot({ employeeState: fromEmployee.reducer }),
     EffectsModule.forRoot(),
