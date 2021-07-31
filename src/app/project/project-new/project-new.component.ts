@@ -13,6 +13,7 @@ import {
   loadEmployeesPending,
   selectEmployees,
 } from '../../employees/ngrx/employee.selectors';
+import { updateHeader } from 'src/app/header/ngrx/header.actions';
 @Component({
   selector: 'app-project-new',
   templateUrl: './project-new.component.html',
@@ -40,6 +41,7 @@ export class ProjectNewComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit(): void {
+    this.store.dispatch(updateHeader({ updatedHeader: 'Add project' }));
     this.employeeListSub = this.store
       .select(selectEmployees)
       .subscribe((employees) => {
