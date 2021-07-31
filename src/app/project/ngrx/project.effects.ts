@@ -21,7 +21,12 @@ export class ProjectEffects {
           map((projects) => loadProjects.success({ projects: projects })),
           catchError((error) => of(loadProjects.failure({ error })))
         )
-      )
+      ),
+      tap((v) => {
+        for (let i in v) {
+          console.log(i);
+        }
+      })
     )
   );
   loadProject$ = createEffect(() =>

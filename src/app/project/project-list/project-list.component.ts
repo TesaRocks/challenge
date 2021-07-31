@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { IApplicationState } from 'src/app/application-state';
 import { loadProjects } from '../ngrx/project.actions';
-import { selectProjects } from '../ngrx/project.selectors';
+import {
+  error,
+  loadProjectsPending,
+  selectProjects,
+} from '../ngrx/project.selectors';
 import { IProject } from '../project.interface';
 
 @Component({
@@ -15,9 +20,13 @@ import { IProject } from '../project.interface';
 export class ProjectListComponent implements OnInit {
   constructor(
     private router: Router,
-    private store: Store<IApplicationState>
+    private store: Store<IApplicationState>,
+    public dialog: MatDialog
   ) {}
   projects$!: Observable<IProject[]>;
+  loadProjectsPending$!: Observable<boolean>;
+  deleteProjectPending$!: Observable<boolean>;
+  error!: Subscription;
 
   displayedColumns: string[] = [
     'projectInfo',
@@ -27,7 +36,21 @@ export class ProjectListComponent implements OnInit {
     'action',
   ];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(loadProjects.begin());
+    this.projects$ = this.store.select(selectProjects);
+    this.loadProjectsPending$ = this.store.select(loadProjectsPending);
+    //     this.error = this.store.select(error).subscribe((error) => {
+    //       if (error) {
+    //         let errorDialog = this.dialog.open(ErrorMessage, {
+    //           data: { message: error.message },
+    //         });
+    //         errorDialog.afterClosed().subscribe(() => {
+    //           this.router.navigate(['']);
+    //         });
+    //       }
+    //     });
+  }
 }
 
 // export const fakeDb: IProject[] = [

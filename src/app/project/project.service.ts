@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProject } from './project.interface';
+
 @Injectable({ providedIn: 'root' })
 export class ProjectService {
   constructor(private http: HttpClient) {}
