@@ -1,7 +1,7 @@
 export interface IProject {
-  id: string;
+  id?: string;
   projectName: string;
-  creationDate: number;
+  creationDate: Date;
   projectManager: string;
   description: string;
   assignedTo: string;

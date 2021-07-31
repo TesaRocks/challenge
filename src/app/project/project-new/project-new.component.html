@@ -2,6 +2,10 @@
   <h2>Loading...</h2>
   <mat-spinner> </mat-spinner>
 </div>
+<div *ngIf="addProjectPending$ | async">
+  <h2>Saving...</h2>
+  <mat-spinner> </mat-spinner>
+</div>
 
 <div class="newProject">
   <mat-card fxFlex.xs="90" fxFlex="45">
@@ -34,7 +38,6 @@
 
       <mat-form-field appearance="fill">
         <mat-card-subtitle>Project Manager</mat-card-subtitle>
-        <input matInput formControlName="manager" id="manager" required />
         <mat-select formControlName="manager" id="manager" required>
           <mat-option *ngFor="let employee of employeeList" [value]="employee"
             >{{ employee.name }}
@@ -46,7 +49,11 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-card-subtitle>Assigned to</mat-card-subtitle>
-        <input matInput formControlName="assigned" id="assigned" required />
+        <mat-select formControlName="assigned" id="assigned" required>
+          <mat-option *ngFor="let employee of employeeList" [value]="employee"
+            >{{ employee.name }}
+          </mat-option>
+        </mat-select>
         <mat-error *ngIf="hasError('assigned', 'required')"
           >Plase select one
         </mat-error>
@@ -56,7 +63,7 @@
 
         <mat-select formControlName="status" required>
           <mat-option value="enabled">Enabled</mat-option>
-          <mat-option value="sales">Disabled</mat-option>
+          <mat-option value="disabled">Disabled</mat-option>
         </mat-select>
         <mat-error *ngIf="hasError('status', 'required')"
           >Plase enter a status

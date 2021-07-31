@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, mergeMap, catchError, tap, concatMap } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { ProjectService } from '../project.service';
 import {
   loadProject,
@@ -54,8 +53,7 @@ export class ProjectEffects {
           map((project) => addProject.success({ project })),
           catchError((error) => of(addProject.failure({ error })))
         )
-      ),
-      tap(() => this.router.navigate(['projects']))
+      )
     )
   );
   updateProject$ = createEffect(
@@ -67,8 +65,7 @@ export class ProjectEffects {
             action.project.id,
             action.project.changes
           )
-        ),
-        tap(() => this.router.navigate(['projects']))
+        )
       ),
     { dispatch: false }
   );
@@ -86,7 +83,6 @@ export class ProjectEffects {
 
   constructor(
     private actions$: Actions,
-    private projectService: ProjectService,
-    private router: Router
+    private projectService: ProjectService
   ) {}
 }

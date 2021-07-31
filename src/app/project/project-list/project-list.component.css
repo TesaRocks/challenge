@@ -17,3 +17,13 @@ box-shadow: inset 0px -1px 0px #D9D9D9;
 .loading{
   text-align: center;
 }
+span{
+  font-size:x-small;
+  color:#808080
+}
+th{
+  color:black;
+}
+.account{
+  display: flex
+}

@@ -14,6 +14,9 @@ import {
   selectEmployees,
 } from '../../employees/ngrx/employee.selectors';
 import { updateHeader } from 'src/app/header/ngrx/header.actions';
+import { loadEmployees } from 'src/app/employees/ngrx/employee.actions';
+import { addProject } from '../ngrx/project.actions';
+import { addProjectPending } from '../ngrx/project.selectors';
 @Component({
   selector: 'app-project-new',
   templateUrl: './project-new.component.html',
@@ -42,6 +45,7 @@ export class ProjectNewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.store.dispatch(updateHeader({ updatedHeader: 'Add project' }));
+    this.store.dispatch(loadEmployees.begin());
     this.employeeListSub = this.store
       .select(selectEmployees)
       .subscribe((employees) => {
@@ -60,7 +64,19 @@ export class ProjectNewComponent implements OnInit, OnDestroy {
     });
   }
   onSubmit() {
-    //const newProject:IProject
+    const newProject: IProject = {
+      projectName: this.formNew.value.name,
+      creationDate: new Date(),
+      projectManager: this.formNew.value.manager.name,
+      description: this.formNew.value.description,
+      assignedTo: this.formNew.value.assigned.name,
+      status: this.formNew.value.status,
+    };
+    this.store.dispatch(addProject.begin({ project: newProject }));
+    this.addProjectPending$ = this.store.select(addProjectPending);
+    //this.store.dispatch(updateHeader({ updatedHeader: 'My projects' }));
+    //this.router.navigate(['/projects']);
+    this.formNew.reset();
   }
   hasError(
     inputName: 'name' | 'description' | 'manager' | 'assigned' | 'status',
