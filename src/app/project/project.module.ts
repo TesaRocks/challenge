@@ -10,6 +10,7 @@ import { ProjectEffects } from './ngrx/project.effects';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   imports: [
     CommonModule,
     FlexLayoutModule,
+    SharedModule,
     MaterialModule,
     ReactiveFormsModule,
     StoreModule.forFeature(fromProject.projectsFeatureKey, fromProject.reducer),
