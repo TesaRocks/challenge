@@ -1,40 +1,59 @@
+.container{
+  margin-bottom: 100px;
+}
+
 .logo{
+  margin-top: 50px;
   margin-left: 20px;
   position: absolute;
-  width: 1440px;
+  width: 1200px;
   height: 56px;
   left: 0px;
   top: 0px;
-  background: #FFFFFF;
+  background:whitesmoke;
   border: 1px solid #D9D9D9;
 
 }
 .header{
+
+  margin-top: 50px;
   margin-left: 20px;
   position: absolute;
-width: 1440px;
+width: 1200px;
 height: 56px;
 left: 0px;
 top: 57px;
 
-background: #FFFFFF;
+background: whitesmoke;
 /* stroke / bottom */
 
 box-shadow: inset 0px -1px 0px #D9D9D9;
 }
 h2{
-  height: 32px;
-width: 114px;
-left: 48px;
-top: 69px;
-border-radius: nullpx;
+margin-left: 50px;
 
 }
 h3{
-  height: 32px;
-width: 40px;
-left: 48px;
-top: 12px;
-border-radius: nullpx;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+button{
+  margin-left: 800px;
+  margin-bottom: 10px;
+}
+.headerContainer{
+  display: flex;
+}
+.arrow{
+  margin-left: 0px;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+  .header {width: 360px; height: 40px; margin-left: 40px;}
+  .logo {width: 360px; margin-left: 40px;}
+  h2{font-size: 16px;}
+  button{margin-left:110px; width: 98px; font-size: 12px; height: 32px;}
+
 
 }

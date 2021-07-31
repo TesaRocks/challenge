@@ -12,8 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
 import * as fromEmployee from './employees/ngrx/employee.reducer';
+import * as fromHeader from './header/ngrx/header.reducer';
 import { HeaderComponent } from './header/header.component';
-
+import { MaterialModule } from './material/material.module';
+import { EmployeeEffects } from './employees/ngrx/employee.effects';
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
@@ -22,9 +24,13 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     FlexLayoutModule,
     SharedModule,
+    MaterialModule,
     ProjectModule,
-    StoreModule.forRoot({ employeeState: fromEmployee.reducer }),
-    EffectsModule.forRoot(),
+    StoreModule.forRoot({
+      employeeState: fromEmployee.reducer,
+      headerState: fromHeader.reducer,
+    }),
+    EffectsModule.forRoot([EmployeeEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

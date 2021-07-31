@@ -1,0 +1,20 @@
+.newProject{
+
+  margin-top: 170px;
+  margin-left: 450px;
+}
+@media only screen and (max-width: 600px) {
+  .newProject {
+    margin-left: 40px;
+    width: 100%;
+  }
+  .spinner {
+    margin-left: 150px;
+
+  }
+
+}
+
+.spinner{
+  margin-left: 500px;
+}

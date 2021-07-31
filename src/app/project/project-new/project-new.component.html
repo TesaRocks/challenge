@@ -1,10 +1,22 @@
 <div *ngIf="loadEmployeesPending$ | async">
-  <h2>Loading...</h2>
-  <mat-spinner> </mat-spinner>
+  <h2 class="spinner">Loading...</h2>
+  <mat-spinner class="spinner"> </mat-spinner>
+</div>
+<div *ngIf="addProjectPending$ | async">
+  <h2 class="spinner">Saving...</h2>
+  <mat-spinner class="spinner"> </mat-spinner>
+</div>
+<div *ngIf="updatePending$ | async">
+  <h2 class="spinner">Updating...</h2>
+  <mat-spinner class="spinner"> </mat-spinner>
+</div>
+<div *ngIf="loadProjectPending$ | async">
+  <h2 class="spinner">Loading...</h2>
+  <mat-spinner class="spinner"> </mat-spinner>
 </div>
 
-<div fxLayoutAlign="right">
-  <mat-card fxFlex.xs="100" fxFlex="45">
+<div class="newProject">
+  <mat-card fxFlex.xs="90" fxFlex="45">
     <form
       [formGroup]="formNew"
       (ngSubmit)="onSubmit()"
@@ -34,7 +46,6 @@
 
       <mat-form-field appearance="fill">
         <mat-card-subtitle>Project Manager</mat-card-subtitle>
-        <input matInput formControlName="manager" id="manager" required />
         <mat-select formControlName="manager" id="manager" required>
           <mat-option *ngFor="let employee of employeeList" [value]="employee"
             >{{ employee.name }}
@@ -46,7 +57,11 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-card-subtitle>Assigned to</mat-card-subtitle>
-        <input matInput formControlName="assigned" id="assigned" required />
+        <mat-select formControlName="assigned" id="assigned" required>
+          <mat-option *ngFor="let employee of employeeList" [value]="employee"
+            >{{ employee.name }}
+          </mat-option>
+        </mat-select>
         <mat-error *ngIf="hasError('assigned', 'required')"
           >Plase select one
         </mat-error>
@@ -56,7 +71,7 @@
 
         <mat-select formControlName="status" required>
           <mat-option value="enabled">Enabled</mat-option>
-          <mat-option value="sales">Disabled</mat-option>
+          <mat-option value="disabled">Disabled</mat-option>
         </mat-select>
         <mat-error *ngIf="hasError('status', 'required')"
           >Plase enter a status
@@ -70,7 +85,7 @@
         color="warn"
         [disabled]="!formNew.valid"
       >
-        Create Project
+        {{ editMode ? "Save changes" : "Create project" }}
       </button>
     </form>
   </mat-card>

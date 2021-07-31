@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectNewComponent } from './project-new/project-new.component';
-import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromProject from './ngrx/project.reducer';
@@ -13,11 +12,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    ProjectListComponent,
-    ProjectNewComponent,
-    ProjectEditComponent,
-  ],
+  declarations: [ProjectListComponent, ProjectNewComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,

@@ -26,7 +26,7 @@ export const loadProjects = {
  ***************************************/
 const loadProjectBegin = createAction(
   '[Project] Load Project Begin',
-  props<{ id: number }>()
+  props<{ id: string }>()
 );
 const loadProjectSuccess = createAction(
   '[Project] Load Project Success',
@@ -78,11 +78,11 @@ export const updateProject = {
  ***************************************/
 const deleteProjectBegin = createAction(
   '[Project] Delete Project begin',
-  props<{ id: number }>()
+  props<{ id: string }>()
 );
 const deleteProjectSuccess = createAction(
   '[Project] Delete Project Success',
-  props<{ id: number }>()
+  props<{ id: string }>()
 );
 const deleteProjectFailure = createAction(
   '[Project] Delete Project Failure',
