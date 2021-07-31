@@ -49,7 +49,7 @@ export class ProjectNewComponent implements OnInit, OnDestroy {
   employeeList!: IEmployee[];
   loadProjectPending$!: Observable<boolean>;
   updatePending$!: Observable<boolean>;
-  hola = 'jola';
+
   formNew: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.maxLength(45)]],
     description: ['', [Validators.required, Validators.maxLength(45)]],

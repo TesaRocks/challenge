@@ -1,7 +1,18 @@
 <div class="container">
   <div class="logo"><h3>Logo</h3></div>
-  <div class="header">
+  <div div class="header">
     <div class="headerContainer">
+      <div *ngIf="backArrow">
+        <button
+          class="arrow"
+          mat-button
+          matTooltip="back to project list"
+          (click)="onBack()"
+        >
+          <mat-icon>arrow_back</mat-icon>
+          Back
+        </button>
+      </div>
       <h2>{{ header }}</h2>
       <button
         mat-raised-button
@@ -12,11 +23,6 @@
       >
         + Add Project
       </button>
-      <div *ngIf="backArrow">
-        <button mat-button matTooltip="back to project list" (click)="onBack()">
-          <mat-icon>arrow_back</mat-icon>
-        </button>
-      </div>
     </div>
   </div>
 </div>

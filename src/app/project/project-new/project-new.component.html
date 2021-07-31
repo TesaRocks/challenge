@@ -1,18 +1,18 @@
 <div *ngIf="loadEmployeesPending$ | async">
-  <h2>Loading...</h2>
-  <mat-spinner> </mat-spinner>
+  <h2 class="spinner">Loading...</h2>
+  <mat-spinner class="spinner"> </mat-spinner>
 </div>
 <div *ngIf="addProjectPending$ | async">
-  <h2>Saving...</h2>
-  <mat-spinner> </mat-spinner>
+  <h2 class="spinner">Saving...</h2>
+  <mat-spinner class="spinner"> </mat-spinner>
 </div>
 <div *ngIf="updatePending$ | async">
-  <h2>Updating...</h2>
-  <mat-spinner> </mat-spinner>
+  <h2 class="spinner">Updating...</h2>
+  <mat-spinner class="spinner"> </mat-spinner>
 </div>
 <div *ngIf="loadProjectPending$ | async">
-  <h2>Loading...</h2>
-  <mat-spinner> </mat-spinner>
+  <h2 class="spinner">Loading...</h2>
+  <mat-spinner class="spinner"> </mat-spinner>
 </div>
 
 <div class="newProject">
