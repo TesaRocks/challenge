@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProject } from './project.interface';
+import { IEmployee } from '../employee.interface';
 @Injectable({ providedIn: 'root' })
 export class ProjectService {
   constructor(private http: HttpClient) {}
@@ -16,6 +17,7 @@ export class ProjectService {
       `https://estoeschallenge-default-rtdb.firebaseio.com/projects.json`
     );
   }
+
   updateProject(
     id: string | number,
     changes: Partial<IProject>
@@ -32,6 +34,11 @@ export class ProjectService {
     return this.http.post<IProject>(
       'https://estoeschallenge-default-rtdb.firebaseio.com/projects.json',
       project
+    );
+  }
+  fetchEmployees(): Observable<IEmployee[]> {
+    return this.http.get<IEmployee[]>(
+      'https://estoeschallenge-default-rtdb.firebaseio.com/employee.json'
     );
   }
 }

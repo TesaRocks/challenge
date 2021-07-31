@@ -21,6 +21,7 @@ export interface IProjectsInitialState extends EntityState<IProject> {
   updateProjectPending: boolean;
   deleteProjectPending: boolean;
 }
+
 export const adapter: EntityAdapter<IProject> = createEntityAdapter<IProject>();
 
 export const projectsInitialState: IProjectsInitialState =

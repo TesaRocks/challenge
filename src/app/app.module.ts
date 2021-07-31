@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjectModule } from './project/project.module';
 import { HeaderComponent } from './header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -16,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FlexLayoutModule,
     ProjectModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot(),
@@ -23,6 +26,7 @@ import { HeaderComponent } from './header/header.component';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

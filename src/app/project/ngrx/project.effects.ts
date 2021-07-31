@@ -11,6 +11,7 @@ import {
   deleteProject,
   updateProject,
 } from './project.actions';
+import { IProject } from '../project.interface';
 @Injectable()
 export class ProjectEffects {
   loadProjects$ = createEffect(() =>
@@ -18,7 +19,17 @@ export class ProjectEffects {
       ofType(loadProjects.begin),
       mergeMap(() =>
         this.projectService.fetchProjects().pipe(
-          map((projects) => loadProjects.success({ projects: projects })),
+          map((projects) => {
+            let projectEntries: any = Object.entries(projects);
+            let mapedProjects: IProject[] = [];
+            for (let project of projectEntries) {
+              let projectId = project[0];
+              project.splice(0, 1);
+              project[0].id = projectId;
+              mapedProjects.push(project[0]);
+            }
+            return loadProjects.success({ projects: mapedProjects });
+          }),
           catchError((error) => of(loadProjects.failure({ error })))
         )
       )

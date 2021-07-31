@@ -1,5 +1,5 @@
 export interface IProject {
-  id: number;
+  id: string;
   projectName: string;
   creationDate: number;
   projectManager: string;
