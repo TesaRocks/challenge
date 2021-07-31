@@ -27,3 +27,6 @@ th{
 .account{
   display: flex
 }
+.action{
+  cursor: pointer;
+}

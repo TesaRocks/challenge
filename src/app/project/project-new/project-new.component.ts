@@ -72,6 +72,7 @@ export class ProjectNewComponent implements OnInit, OnDestroy {
       assignedTo: this.formNew.value.assigned.name,
       status: this.formNew.value.status,
     };
+
     this.store.dispatch(addProject.begin({ project: newProject }));
     this.addProjectPending$ = this.store.select(addProjectPending);
     //this.store.dispatch(updateHeader({ updatedHeader: 'My projects' }));

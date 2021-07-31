@@ -27,8 +27,10 @@ export class ProjectService {
       changes
     );
   }
-  deleteProject(id: number) {
-    return this.http.delete<string>(`/${id}`);
+  deleteProject(id: string) {
+    return this.http.delete<string>(
+      `https://estoeschallenge-default-rtdb.firebaseio.com/projects/${id}.json`
+    );
   }
   newProject(project: IProject): Observable<IProject> {
     return this.http.post<IProject>(

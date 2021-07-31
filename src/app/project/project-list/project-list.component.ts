@@ -4,14 +4,16 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { IApplicationState } from 'src/app/application-state';
-import { loadProjects } from '../ngrx/project.actions';
+import { deleteProject, loadProjects } from '../ngrx/project.actions';
 import { ErrorMessage } from 'src/app/shared/error-message';
 import {
+  deleteProjectPending,
   error,
   loadProjectsPending,
   selectProjects,
 } from '../ngrx/project.selectors';
 import { IProject } from '../project.interface';
+import { DeleteConfirm } from 'src/app/shared/delete-confirm';
 
 @Component({
   selector: 'app-project-list',
@@ -52,34 +54,17 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       }
     });
   }
+  openDeleteDialog(id: string) {
+    const dialogRef = this.dialog.open(DeleteConfirm);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.store.dispatch(deleteProject.begin({ id: id }));
+        this.deleteProjectPending$ = this.store.select(deleteProjectPending);
+      }
+    });
+  }
   ngOnDestroy() {
     this.error.unsubscribe();
   }
 }
-
-// export const fakeDb: IProject[] = [
-//   {
-//     projectName: 'Landing page',
-//     creationDate: Date.now(),
-//     projectManager: 'Walt Cosani',
-//     description: 'some description',
-//     assignedTo: 'Ignacio Truffa',
-//     status: 'Enabled',
-//   },
-//   {
-//     projectName: 'E-commerce Shop',
-//     creationDate: Date.now(),
-//     projectManager: 'Walt Cosani',
-//     description: 'some description',
-//     assignedTo: 'Ignacio Truffa',
-//     status: 'Enabled',
-//   },
-//   {
-//     projectName: 'CRM Linkroom',
-//     creationDate: Date.now(),
-//     projectManager: 'Walt Cosani',
-//     description: 'some description',
-//     assignedTo: 'Ignacio Truffa',
-//     status: 'Enabled',
-//   },
-// ];
