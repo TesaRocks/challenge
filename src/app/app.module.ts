@@ -8,11 +8,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjectModule } from './project/project.module';
-import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
 import * as fromEmployee from './employees/ngrx/employee.reducer';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],

@@ -16,7 +16,7 @@ import {
 @Component({
   selector: 'app-project-new',
   templateUrl: './project-new.component.html',
-  styleUrls: ['./project-new.component.sass'],
+  styleUrls: ['./project-new.component.css'],
 })
 export class ProjectNewComponent implements OnInit, OnDestroy {
   constructor(
