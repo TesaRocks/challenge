@@ -12,9 +12,9 @@ export class ProjectService {
       'https://estoeschallenge-default-rtdb.firebaseio.com/projects.json'
     );
   }
-  fetchProject(id: number): Observable<IProject> {
+  fetchProject(id: string): Observable<IProject> {
     return this.http.get<IProject>(
-      `https://estoeschallenge-default-rtdb.firebaseio.com/projects.json`
+      `https://estoeschallenge-default-rtdb.firebaseio.com/projects/${id}.json`
     );
   }
 
@@ -23,7 +23,7 @@ export class ProjectService {
     changes: Partial<IProject>
   ): Observable<IProject> {
     return this.http.put<IProject>(
-      `https://estoeschallenge-default-rtdb.firebaseio.com/projects.json`,
+      `https://estoeschallenge-default-rtdb.firebaseio.com/projects/${id}.json`,
       changes
     );
   }

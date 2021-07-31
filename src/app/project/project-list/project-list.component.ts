@@ -64,6 +64,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       }
     });
   }
+  onEdit(id: string) {
+    this.router.navigate(['projects', 'edit', id]);
+  }
   ngOnDestroy() {
     this.error.unsubscribe();
   }

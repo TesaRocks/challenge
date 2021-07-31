@@ -26,7 +26,7 @@ export const loadProjects = {
  ***************************************/
 const loadProjectBegin = createAction(
   '[Project] Load Project Begin',
-  props<{ id: number }>()
+  props<{ id: string }>()
 );
 const loadProjectSuccess = createAction(
   '[Project] Load Project Success',
